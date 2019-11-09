@@ -1,0 +1,77 @@
+<div class="container mb-3">
+  <div class="row">
+    <div class="col">
+      <div class="dropdown show mt-3 mb-3">
+        <a class="btn btn-primary text-white dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Fetch Nobel Prize Winners
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" (click)="filterBy('none')">None</a>
+          <a class="dropdown-item" (click)="filterBy('chemistry')">Chemistry</a>
+          <a class="dropdown-item" (click)="filterBy('economics')">Economics</a>
+          <a class="dropdown-item" (click)="filterBy('medicine')">Medicine</a>
+          <a class="dropdown-item" (click)="filterBy('literature')">Literature</a>
+          <a class="dropdown-item" (click)="filterBy('physics')">Physics</a>
+          <a class="dropdown-item" (click)="filterBy('peace')">Peace</a>
+          <a class="dropdown-item" (click)="filterBy('all')">all</a>
+        </div>
+      </div>
+
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text text-white bg-primary" id="basic-addon3">Fetch By Year</span>
+        </div>
+        <input type="text" #yearInput class="form-control col-3" id="basic-url" aria-describedby="basic-addon3">
+      </div>
+
+      <button class="btn btn-primary" (click)="fetchByYear(yearInput.value)">Search</button>
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-lg-3" *ngFor="let item of theGreatOnes">
+      <div class="card shadow bg-info mb-1">
+        <div class="card-body text-center">
+          <h3 class="card-title p-2 rounded-sm bg-success text-white">Year: {{item.Year}}</h3>
+          <h4 class="border-success rounded-pill bg-light">{{ item.Name }}</h4>
+          <p class="card-text p-3 rounded-sm bg-light font-italic">{{ item.Motivation }} under the category
+            of
+            {{item.Category}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<hr>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-lg-3" *ngFor="let item of filteredResponse">
+      <div class="card shadow bg-light mb-1">
+        <div class="card-body text-center">
+          <h3 class="card-title p-2 rounded-sm bg-success text-white">Year: {{item.year}}</h3>
+          <ul class="list-group list-group-flush mb-2">
+            <li class="list-group-item border-success rounded-pill bg-light" *ngFor="let key of item.laureates">
+              {{key.firstname}} {{key.surname}}
+            </li>
+          </ul>
+          <p class="card-text p-3 rounded-sm bg-light font-italic">{{ item.laureates[0].motivation }} under the category
+            of
+            {{item.category}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
