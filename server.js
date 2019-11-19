@@ -10,9 +10,9 @@ app.use(express.static(__dirname + '/dist/bikayi-assignment'));
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
 
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname + '/dist/bikayi-assignment/index.html'));
-// });
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname + '/dist/bikayi-assignment/index.html'));
+});
 
 
 console.log("Console listening!");
