@@ -30,7 +30,7 @@ const app = express();
 app.use(express.static('./dist/app'));
 
 app.get('/*', function (req, res) {
-  console.log(/dist/bikayi - assignment / index.html)
+
   res.sendFile(path.join(__dirname, '/dist/app/index.html'));
 });
 
