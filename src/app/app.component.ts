@@ -14,7 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
   filteredResponse = [];
   filteredPaginatedResponse = [];
   theGreatOnes = [];
-  buttonHeaderTitle = 'Fetch Nobel Prize Winners';
+  buttonHeaderTitle = 'To Showcase Nobel Prize Winners';
   displayAmount = 10;
 
   constructor(private http: HttpClient) {

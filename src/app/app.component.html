@@ -1,4 +1,5 @@
 <div class="container">
+  
   <div class="row">
     <div class="col-md-6 col-lg-3" *ngFor="let item of theGreatOnes">
       <div class="card shadow bg-info mb-1">
@@ -28,14 +29,14 @@
         </a>
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" (click)="filterBy('none')">None</a>
+          <a class="dropdown-item" (click)="filterBy('all')">All</a>
           <a class="dropdown-item" (click)="filterBy('chemistry')">Chemistry</a>
           <a class="dropdown-item" (click)="filterBy('economics')">Economics</a>
-          <a class="dropdown-item" (click)="filterBy('medicine')">Medicine</a>
           <a class="dropdown-item" (click)="filterBy('literature')">Literature</a>
+          <a class="dropdown-item" (click)="filterBy('medicine')">Medicine</a>
           <a class="dropdown-item" (click)="filterBy('physics')">Physics</a>
           <a class="dropdown-item" (click)="filterBy('peace')">Peace</a>
-          <a class="dropdown-item" (click)="filterBy('all')">all</a>
+          <a class="dropdown-item" (click)="filterBy('none')">None</a>
         </div>
         
       </div>
@@ -46,20 +47,15 @@
         </a>
 
          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" (click)="displayItemList(5)">Display 5-item list</a>
-          <a class="dropdown-item" (click)="displayItemList(10)">Display 10-item list</a>
-          <a class="dropdown-item" (click)="displayItemList(15)">Display 15-item list</a>
+          <a class="dropdown-item" (click)="displayItemList(5)">Display 5-items per list</a>
+          <a class="dropdown-item" (click)="displayItemList(10)">Display 10-items per list</a>
+          <a class="dropdown-item" (click)="displayItemList(15)">Display 15-items per list</a>
         </div>
         
       </div>
       
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text text-white bg-primary" id="basic-addon3">Fetch By Year</span>
-        </div>
-        <input type="text" #yearInput class="form-control col-3" id="basic-url" aria-describedby="basic-addon3">
-      </div>
+      
 
       <button class="btn btn-primary" (click)="fetchByYear(yearInput.value)">Search</button>
 
